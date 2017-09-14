@@ -1,6 +1,6 @@
 ## Havoc In Heaven
 
-> 我的毕业设计, 以故事背景为大闹天空的策略网页游戏
+> 14年毕业设计, 故事背景为大闹天空的策略网页游戏
 
 ### Technology
 * Phaser
@@ -16,6 +16,9 @@
 
 ```bash
 $ bundle install
+$ bundle exec rake db:create
+$ bundle exec rake db:migrate
+$ bundle exec rake db:seed
 $ bundle exec puma -p 8282 # 网页没上线,目前只能自娱自乐
 ```
 
