@@ -41,7 +41,7 @@ $ bundle exec puma -p 9999
 * 道具
   * 卷轴(查看 npc 对话)
   * 七彩的翅膀(各层切换)
-  * ~~写轮眼~~ 火眼金睛(查看怪兽属性)
+  * 火眼金睛 ~~写轮眼~~ (查看怪兽属性)
 
 ![alt text](https://github.com/joeeeeey/Havoc-in-Heaven/blob/master/app/assets/images/screenshot/shoot8.png)
 
