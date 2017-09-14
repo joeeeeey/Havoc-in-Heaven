@@ -1,0 +1,13 @@
+<% provide(:title, 'Havoc in Heaven') %>
+<%= include_gon(:init => true, :watch => true) %>
+
+<script type="text/javascript">
+
+
+
+
+</script>
+<% content_for :javascript_includes do %>
+<%= javascript_include_tag "phaser/game.js"%>
+<% end %>
+

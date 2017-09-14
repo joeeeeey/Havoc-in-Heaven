@@ -1,0 +1,10 @@
+      <body background="cloud5.jpg">
+        <%= render 'layouts/header' %>
+  
+      </body>
+
+  <div class="view" ng-view></div>
+
+<% content_for :stylesheet_links do %>
+<%= stylesheet_link_tag "question.css"%>
+<% end %>

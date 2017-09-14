@@ -1,0 +1,217 @@
+@import "bootstrap";
+
+    /* universal */
+
+
+    /* mixins, variables, etc. */
+    $grayMediumLight: #eaeaea;
+
+    @mixin box_sizing {
+      -moz-box-sizing: border-box; 
+      -webkit-box-sizing: border-box; 
+      box-sizing: border-box;
+    }
+
+p.logo{
+  text-align: right;
+  
+}
+div.logo{
+   
+   background-size: 105% ;
+   background-repeat: no-repeat;
+
+}
+
+a.logo{
+    display: block;
+    width: 850px;
+    height:158px;
+    background-image: url("havoc.gif");
+    background-size: 105% ;
+    background-repeat: no-repeat;
+}
+
+body.mainBg{
+   background-image: url("doushuaigong.png");
+  background-size: 100%;
+}
+
+body.gameBg{
+   background-image: url("gamWebBg.jpg");
+  background-size: 100%;
+}
+
+th.choices{
+  width: 10%
+}
+
+    html {
+      overflow-y: scroll;
+    }
+
+    body {
+      padding-top: 60px;
+    }
+
+    section {
+      overflow: auto;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .center h1 {
+      margin-bottom: 10px;
+    }
+
+    /* typography */
+
+     th {
+        font-size: 2em;
+       }
+    td {
+         font-size: 2em;
+      }
+
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      letter-spacing: -2px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.7em;
+      letter-spacing: -1px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: normal;
+      color: #999;
+    }
+
+
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.7em;
+    }
+
+    #logo {
+      float: left;
+      margin-right: 10px;
+      font-size: 1.7em;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      padding-top: 9px;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    #logo:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* footer */
+
+    footer {
+      margin-top: 45px;
+      padding-top: 5px;
+      border-top: 1px solid #eaeaea;
+      color: #010A0A;
+    }
+
+    footer a {
+      color: #555;
+    }  
+
+    footer a:hover { 
+      color: #222;
+    }
+
+    footer small {
+      float: left;
+      font-size: 1.2em;
+      color: #010A0A; 
+      padding-top: 10px;
+    }
+
+    footer ul.navbar-nav{
+      float: right;
+      list-style: none;
+    }
+
+    footer ul li {
+      float: left;
+      margin-left: 10px;
+    }
+    
+    /* miscellaneous */
+
+    .debug_dump {
+      clear: both;
+      float: left;
+      width: 100%;
+      margin-top: 45px;
+      @include box_sizing;
+    }
+
+
+/* sidebar */
+
+    aside {
+      section {
+        padding: 10px 0;
+        border-top: 1px solid $grayLighter;
+        &:first-child {
+          border: 0;
+          padding-top: 0;
+        }
+        span {
+          display: block;
+          margin-bottom: 3px;
+          line-height: 1;
+        }
+        h1 {
+          font-size: 1.6em;
+          text-align: left;
+          letter-spacing: -1px;
+          margin-bottom: 3px;
+        }
+      }
+    }
+
+    .gravatar {
+      float: left;
+      margin-right: 10px;
+    }
+
+
+
+/* forms */
+    
+    #error_explanation {
+      color: #f00;
+      ul {
+        list-style: none;
+        margin: 0 0 18px 0;
+      }
+    }
+
+    .field_with_errors {
+      @extend .control-group;
+      @extend .error;
+     }
+
+

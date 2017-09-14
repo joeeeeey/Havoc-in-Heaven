@@ -1,0 +1,10 @@
+var imageList = [ { "key": "veryfirst" , "path" : "assets/veryfirst.jpg"},{ "key": "herewego" , "path" : "assets/shuiliandong.jpg"},
+{ "key": "herewego" , "path" : "assets/herewego.png"},{ "key": "shuiliandong" , "path" : "assets/shuiliandong.jpg"},
+{ "key": "douzhanshengfo" , "path" : "assets/douzhanshengfo.png"},{ "key": "jiaye" , "path" : "assets/jiaye.png"},
+{ "key": "goon" , "path" : "assets/goon.png"},{ "key": "dialogue" , "path" : "assets/dialogue.png"},
+{ "key": "nantianmen" , "path" : "assets/nantianmen.jpg"},{ "key": "pantaoyuan" , "path" : "assets/pantaoyuan.jpg"},
+{ "key": "wall" , "path" : "assets/newwall.png"},{ "key": "cloud" , "path" : "assets/tiangong2.png"},
+{ "key": "attributes" , "path" : "assets/attributes.png"},{ "key": "grey" , "path" : "assets/liehuo.png"}]
+
+
+

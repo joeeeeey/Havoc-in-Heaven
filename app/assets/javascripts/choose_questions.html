@@ -1,0 +1,57 @@
+ <br> <font color= '#734AC7'><center>  <h1>Welcome My Quiz Interface！</h1></center></font><br>      <br>  
+
+ <div >
+
+<div class="col-sm-3">
+
+<h3><i><strong>Before answering the questions, <br><br> you can see some details of list: </strong></i></h3><br>
+       <select    ng-model="kind">
+        <option  value= 0 >Mixed Questions</option>
+        <option value= 1>Questions about this game 1</option>
+        <option value= 2>Questions about this game 2</option>
+        <option value= 3>Questions about this game 3</option>
+        <option value= 4 >Mathemathic Questions 1</option>
+        <option value= 5 >Mathemathic Questions 2</option>
+        <option value= 6 >Literature Questions 1</option>
+        <option value= 7 >Literature Questions 2</option>
+        <option value= 8 >Science Questions 1</option>
+        <option value= 9 >Science Questions 2</option>
+        </select><br><br><br><br>
+       
+
+
+      
+        <h3 ><font color= '#41E87B'><a href="#/rule">READ RULES</a></font></h3>
+        </div>
+
+       <div class="col-sm-5">
+ 
+        <table class="table table-bordered">
+                <tr>    <th class="choices" ><center>Question Lists</center></th></tr> 
+                <tr  ng-repeat="a in questionLists"   ng-click="transferIndex($index)"  >
+                    <td><center>
+       <a href=""><font color = '#1E854B'> {{a}} </font></a></center>  
+       </td>
+       </table>
+       </div>
+
+
+      <div class="col-sm-4" ng-show ="kind == null" >  <font color= '#999714'>
+        <h1><br>If you have already <br><br>prepared, click the list to <br><br>start! Good luck! =^_^=</h1></font>
+      </div>
+
+
+    <div class="col-sm-4" ng-show ="kind != null" > 
+    <table class="table table-bordered">
+                <tr>   <th class="choices">{{questionLists[kind]}}</th></tr> 
+                 <tr ng-repeat="a in questions[kind]">       <td><font color= '#0C968D'>
+      {{$index+1}}: &nbsp;{{a}}</font>
+        </td>
+        </table>
+    </div>
+
+
+    </div>
+
+
+   

@@ -1,0 +1,144 @@
+var app = angular.module("demoApp",['ngRoute'])
+
+app.config(function ($routeProvider) {
+      $routeProvider
+          .when('/choose',
+              {
+                  controller: 'SimpleController',
+                  templateUrl: "<%= asset_path('choose_questions.html')%>" 
+              })
+          .when('/answerQuestion',
+              {
+                  controller: 'SimpleController',
+                  templateUrl: "<%= asset_path('questionOne.html')%>" 
+              })
+          .when('/rule',
+              {
+                  controller: 'SimpleController',
+                  templateUrl: "<%= asset_path('rules.html')%>" 
+              })
+          .otherwise({ redirectTo: '/choose' });
+  })
+
+
+
+app.factory('SimpleFactory', function () {
+
+        var factory = {};
+        var whichone;
+
+        factory.changeWhichOne = function(index) {
+            whichone = index;
+            return whichone; 
+        }
+
+        factory.getWhichOne = function() {
+            return whichone; 
+        }
+        return factory;
+      })
+
+
+
+
+
+
+app.controller('SimpleController', function ($scope,SimpleFactory,$location) {
+              
+          
+           $scope.questionLists = ['Mixed Questions', 'Questions about this game 1', 'Questions about this game 2', 'Questions about this game 3', 'Mathemathic Questions 1','Mathemathic Questions 2', 'Literature Questions 1', 'Literature Questions 2', 'Science Questions 1', 'Science Questions 2'];  
+           $scope.goahead = 0; $scope.finished = 0; $scope.evaluate = ['Oh my god!..So worse','You still can be worse', 'So so..','Good','Good score','Nice!','Good job!','Great, man!','Perfect!', 'Wonderfun!', 'Excellent!', 'You are very close to sucess','Oh, shit!'];  
+           $scope.answers =  [[1,1,3,2,1,0,3,1,0,2,0,3],[0,1,2]]  ;   
+           $scope.questions = [[ 'What the fox say?', 'What does RIO mean?', 'Can you defeat a monster stronger than you?',
+           'What do we live for?', 'Where does heart sync exist?', 'Who sells sea shells on the sea-shore?', 'When opposite side chooses sniper, how to deal with?',
+           '金箍棒到底有多长？', 'How to get the red animal Qi away', 'How to strength main character Kong?',
+           'Which city is the capital of China?', 'The number of golden ratio is?'],["Where is Shakespeare's hometown",'aaa','bbb'],['ccc']] 
+           $scope.choices = [[ 
+      ['Ge dingdingdingding~dingdingdingdingdingding','Hapihapihapiduo~hapihapihapiduo', 'Wuowowowowo~~~wowowo~','大楚兴,陈胜王!'],
+      ['A kind of liquor','A story of birds','A Japanese actress','Three capital letters'],['Of course','Sometimes','Of course not','Depends on both attributes'],
+      ['For freedom','For love', '', 'For money, position and power'],['Between romantic groups','Everywhere','Between peaceful peple', 'Never exists'],
+      ['She', 'David', "O'Connor", 'Brenda'], ['Choose white cattle', 'Choose clockworing', 'Choose butcher','You have already lost the game'],
+      ['大概有味千拉面那么长','比味千拉面还长','一万三千五百英尺','一万三千五百寸'],['Give it something to drink', 'Use yellow key', 'Use red key', 'Use blue key'],
+      ['Defeat monsters', 'Get liquor to drink', 'Trade with NPC', 'Answer these questions'],['Beijing', 'Shanghai', 'Changzhou','New York'],
+      ['3.1415', '998', '0.5', '0.618']],
+
+      [['Bowenwang','Lismore Park', 'Tramore', 'Dungarvan'],['sss','ddd','aaa','eee'],['sda','da','fe','da'] ] 
+
+      ]
+           
+           $scope.score = 0; $scope.scoreList = [];
+           $scope.newResult = {}
+           $scope.RightOrWrong= [] 
+           $scope.abcd = ['A','B','C','D'];
+           $scope.resultColor = ['#1CC73E', '#E31B2F'];
+           $scope.resultContent = ['Right!  ￣︶￣', 'Wrong  ＞﹏＜'];
+           $scope.didIt =  [0,0,0,0,0,0,0,0,0,0];
+
+
+    $scope.transferIndex = function ($index) {
+
+      SimpleFactory.changeWhichOne($index);
+      $scope.cc = SimpleFactory.getWhichOne();
+      if($scope.didIt[$index] == 0){
+      $location.path("/answerQuestion")
+     }
+    }
+
+   $scope.whichOne = SimpleFactory.getWhichOne();
+
+    $scope.answerQusetion = function ($index,goahead,score,whichOne) {
+
+        if($scope.goahead<$scope.questions[$scope.whichOne].length-1){
+          if($index == $scope.answers[$scope.whichOne][goahead]){
+              $scope.result = 0;
+              $scope.goahead++;
+              $scope.score += 8;
+
+              $scope.RightOrWrong.push({result: $scope.result, score: $scope.score });
+              $scope.newResult = [];
+          }
+          else  if($index != $scope.answers[$scope.whichOne][goahead]){
+             $scope.result = 1;
+             $scope.goahead++;
+
+              $scope.RightOrWrong.push({result: $scope.result, score: $scope.score });
+              $scope.newResult = [];
+            }
+       }
+
+      else if($scope.goahead==$scope.questions[$scope.whichOne].length-1){
+            if($index == $scope.answers[$scope.whichOne][goahead]){
+              $scope.result = 0;$scope.finished = 1; 
+              $scope.score += 8;  $scope.didIt[$scope.whichOne] = 1;
+               $scope.RightOrWrong.push({result: $scope.result, score: $scope.score });
+               $scope.scoreList.push($scope.score);  
+              $scope.newResult = []; 
+              $scope.answerQusetion = undefined; 
+
+            }
+             else  if($index != $scope.answers[$scope.whichOne][goahead]){
+             $scope.result = 1; $scope.finished = 1;  $scope.didIt[$scope.whichOne] = 1; 
+              $scope.RightOrWrong.push({result: $scope.result, score: $scope.score });
+              $scope.scoreList.push($scope.score); 
+              $scope.newResult = [];  
+               $scope.answerQusetion = undefined;
+            }
+      }
+
+
+}
+
+    $scope.goBack = function () {
+        if($scope.finished==1){     
+        $location.path('/')
+        }
+        else if($scope.finished!=1){
+          alert('You must finished all the questions');
+        }
+    }
+
+
+	})
+
+
+
