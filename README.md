@@ -22,11 +22,7 @@ $ bundle exec rake db:seed
 $ bundle exec puma -p 9999 
 ```
 
-### 一些心得
 
-* 做这个项目的时候，只接触了 rails 这个后端框架, 便用上了。现在看来，对于 phaser 这样的 js 引擎， rails 过于重，而且上下文转换成本高（phaser data => rails controller）。也许使用 sinatra 或者 express 会好很多。
-* 做游戏最耗时间的绝不是写代码。。phaser是从零学起，但主要的时间是用来 描绘场景、构思剧情、人物设计、找图、修图、做动画、音乐剪辑。因为没有专业的美工，所以游戏素材彼此的风格差很多，单人想开发游戏还是找有素材库的，或者像素游戏。
-* Phaser 是个很强大的 WebGL 引擎。
 
 ### 游戏截图
 
@@ -54,3 +50,6 @@ $ bundle exec puma -p 9999
 ![alt text](https://github.com/joeeeeey/Havoc-in-Heaven/blob/master/app/assets/images/screenshot/shoot2.png)
 
 
+#### 体会
+
+做游戏最耗时间的绝不是写代码。。主要的时间是用来 描绘场景、构思剧情、人物设计、找图、修图、做动画、音乐剪辑。没有专业的美工导致游戏素材彼此的风格差很多，单人想开发游戏还是找有素材库的，或者像素游戏。
